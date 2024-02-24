@@ -69,6 +69,7 @@ function Footer(props) {
                     <a href="https://bootstrapmade.com/" className='text-decoration-none'>BootstrapMade</a>
                 </div>
             </div>
+
         </footer>
     );
 }
