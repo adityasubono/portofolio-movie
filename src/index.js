@@ -10,6 +10,7 @@ import './assets/vendor/swiper/swiper-bundle.min.js.map'
 import './assets/vendor/swiper/swiper-bundle.min.css';
 import './assets/vendor/animate.css/animate.min.css';
 
+
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

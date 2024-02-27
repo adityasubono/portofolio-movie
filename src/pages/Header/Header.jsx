@@ -3,15 +3,15 @@ function Header({titleHeader}) {
     return (
         <header id="header" className="fixed-top d-flex align-items-center">
             <div className="container d-flex align-items-center">
-                <h1 className="logo me-auto"><a href='/index.html' className='text-decoration-none'>{titleHeader}</a>
+                <h1 className="logo me-auto"><a href='/' className='text-decoration-none'>{titleHeader}</a>
                 </h1>
                 <nav id="navbar" className="navbar">
                     <ul>
-                        <li><a href="index.html" className="active text-decoration-none">Home</a></li>
+                        <li><a href="/" className="active text-decoration-none">Home</a></li>
                         <li className="dropdown"><a href="#" className='text-decoration-none'><span>About</span> <i
                             className="bi bi-chevron-down"></i></a>
                             <ul>
-                                <li><a href="about.html" className='text-decoration-none'>About</a></li>
+                                <li><a href="/my-list" className='text-decoration-none'>About</a></li>
                                 <li><a href="team.html" className='text-decoration-none'>Team</a></li>
                                 <li><a href="testimonials.html" className='text-decoration-none'>Testimonials</a></li>
 

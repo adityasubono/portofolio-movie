@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Footer(props) {
+function Footer() {
     return (
         <footer id="footer">
             <div className="footer-top">
@@ -27,7 +27,7 @@ function Footer(props) {
                             </div>
                         </div>
 
-                        <div class="col-lg-2 col-md-6 footer-links">
+                        <div className="col-lg-2 col-md-6 footer-links">
                             <h4>Useful Links</h4>
                             <ul>
                                 <li><i className="bx bx-chevron-right"></i> <a href="#">Home</a></li>
@@ -38,7 +38,7 @@ function Footer(props) {
                             </ul>
                         </div>
 
-                        <div class="col-lg-3 col-md-6 footer-links">
+                        <div className="col-lg-3 col-md-6 footer-links">
                             <h4>Our Services</h4>
                             <ul>
                                 <li><i className="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -69,6 +69,7 @@ function Footer(props) {
                     <a href="https://bootstrapmade.com/" className='text-decoration-none'>BootstrapMade</a>
                 </div>
             </div>
+
         </footer>
     );
 }
