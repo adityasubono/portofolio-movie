@@ -11,16 +11,14 @@ import Footer from "./pages/Footer/Footer";
 function App() {
     return (
         <div>
-            <Header titleHeader={'My Movie List'}/>
+            <Header titleHeader={'Aditya Portolio'}/>
             <Section/>
-
             <div className="container">
                 <Routes>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/my-playlist-movie' element={<MyListMovie/>}/>
                 </Routes>
             </div>
-
             <Footer/>
         </div>
     );
