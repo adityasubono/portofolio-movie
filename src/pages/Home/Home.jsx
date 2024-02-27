@@ -1,35 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import movieService from "../../services/movieService";
-import LoadingCard from "../../components/LoadingCard/LoadingCard";
 import {Pagination} from "react-bootstrap";
-
-
+import PaginationComponent from "../../components/Pagination/PaginationComponent";
 
 function Home(props) {
-    const [loading, setLoading] = useState(false)
     const [dataNowPlaying, setDataNowPlaying] = useState([]);
     const [state, setState] = useState({
         data: [],
         limit: 10,
-        activePage: 1
+        activePage: 1,
     });
 
 
-    const fetchNowPlaying = async (page = 10) => {
+    const fetchNowPlaying = async (page) => {
         try {
             const response = await movieService.getNowPlaying(page)
             const data = await response
             setDataNowPlaying(data.data.results);
             setState((prev) => ({
                 ...prev,
-                data: data.data.results
+                data: data.data.results,
             }));
-            setLoading(true)
         } catch (error) {
             console.error('Error fetching data now playing:', error);
 
         } finally {
-           setLoading(false)
+
         }
     };
 
@@ -39,9 +35,8 @@ function Home(props) {
     };
 
 
-
     useEffect(() => {
-        fetchNowPlaying(state.activePage);
+        fetchNowPlaying(state.activePage)
     }, [state.activePage])
 
     return (
@@ -50,7 +45,7 @@ function Home(props) {
 
             <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
                 {dataNowPlaying.map((data, index) => (
-                    <div className="col">
+                    <div className="col" key={index + 1}>
                         <div className="card card-cover h-100 overflow-hidden text-white border-black bg-dark rounded-5 shadow-lg"
                             style={{
                                 backgroundImage: `url(https://www.themoviedb.org/t/p/original/${data.backdrop_path})`,
@@ -59,9 +54,7 @@ function Home(props) {
                             }}
                         >
 
-                            <div className="card-body">
-
-                            </div>
+                            <div className="card-body"></div>
 
 
                             <div className="card bg-transparent border-0" style={{
@@ -101,39 +94,14 @@ function Home(props) {
                         </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-                    // <div className="col" key={index}>
-                    //     <div className="card shadow-sm rounded-2">
-                    //         <img src={`https://www.themoviedb.org/t/p/w1280${data.backdrop_path}`}
-                    //              className="img-fluid"
-                    //              alt="gambar"/>
-                    //         <div className="card-body">
-                    //             <div className='d-flex justify-content-between'>
-                    //                 <p className="card-text fw-bold">{data.original_title} </p>
-                    //                 <div>
-                    //                     <i className="bi bi-clipboard-data me-2"></i>
-                    //                     {Math.round(data.vote_average * 10) / 10}
-                    //                 </div>
-                    //             </div>
-                    //
-                    //             <p className="card-text">{data.overview} </p>
-
-                    //         </div>
-                    //     </div>
-                    // </div>
                 ))}
             </div>
 
-            {/*{JSON.stringify(state.activePage)}*/}
+            {JSON.stringify(state.activePage)}
+
+            {/*<Pagination totalRecords={state.total_results} onPageChanged={handlePageChange(1)} pageLimit={10} pageNeighbours={1}/>*/}
+
+
 
             <Pagination className="px-4">
                 {state.data.map((_, index) => {
@@ -149,7 +117,11 @@ function Home(props) {
                 })}
             </Pagination>
 
-            {/*<PaginationComponent/>*/}
+
+
+
+
+            {/*<PaginationComponent orgName={'YtoTech'} perPage={5} />*/}
         </div>
     );
 }

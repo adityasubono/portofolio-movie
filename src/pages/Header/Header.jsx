@@ -3,7 +3,7 @@ function Header({titleHeader}) {
     return (
         <header id="header" className="fixed-top d-flex align-items-center">
             <div className="container d-flex align-items-center">
-                <h1 className="logo me-auto"><a href='/index.html' className='text-decoration-none'>{titleHeader}</a>
+                <h1 className="logo me-auto"><a href='/' className='text-decoration-none'>{titleHeader}</a>
                 </h1>
                 <nav id="navbar" className="navbar">
                     <ul>
